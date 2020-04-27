@@ -12,12 +12,12 @@ public class PlayerController : MonoBehaviour{
     private Collider2D col;
     
     // Start is called before the first frame update
-    void Start(){
+    private void Start(){
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update(){
+    private void Update(){
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));     
         col = Physics2D.OverlapCircle(transform.position, 1f, interactLayerMask);
         if(Input.GetKeyDown(KeyCode.E)){
@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour{
                     col.GetComponent<Stick>().PickUp();
                 }
             }
+        }
+        else if(Input.GetKeyDown(KeyCode.Q)){
+            EventHandler.ItemDropped(PlayerInventory.Instance.GetItem("stick"));
+            PlayerInventory.Instance.RemoveItem("stick");
         }
 
         

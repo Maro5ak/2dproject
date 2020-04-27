@@ -8,5 +8,6 @@ public class Stick : MonoBehaviour{
         PlayerInventory.Instance.AddItem("stick");
         Destroy(this.gameObject);
     }
+
     
 }

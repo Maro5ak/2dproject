@@ -7,7 +7,7 @@ public class PlayerInventory : MonoBehaviour{
     private List<Item> inventory = new List<Item>();
 
     // Start is called before the first frame update
-    void Start(){
+    private void Start(){
         if(Instance != null && Instance != this){
             Destroy(gameObject);
         }
@@ -17,7 +17,7 @@ public class PlayerInventory : MonoBehaviour{
     }
 
     // Update is called once per frame
-    void Update(){
+    private void Update(){
         
     }
 
@@ -30,5 +30,14 @@ public class PlayerInventory : MonoBehaviour{
         foreach(Item item in inventory){
             Debug.Log(item.GetItemName());
         }
+    }
+    public void RemoveItem(string itemName){
+        inventory.Remove(GetItem(itemName));
+        foreach(Item item in inventory){
+            Debug.Log(item.GetItemName());
+        }
+    }
+    public Item GetItem(string itemName){
+        return inventory.Find(x => x.GetItemName() == itemName);
     }
 }
