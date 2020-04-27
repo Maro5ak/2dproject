@@ -26,18 +26,23 @@ public class PlayerInventory : MonoBehaviour{
             case "stick":
                 inventory.Add(new ItemStick());
                 break;
+            case "log":
+                inventory.Add(new ItemLog());
+                break;
         }
-        foreach(Item item in inventory){
-            Debug.Log(item.GetItemName());
-        }
+        
+        
     }
     public void RemoveItem(string itemName){
         inventory.Remove(GetItem(itemName));
-        foreach(Item item in inventory){
-            Debug.Log(item.GetItemName());
-        }
+
     }
     public Item GetItem(string itemName){
         return inventory.Find(x => x.GetItemName() == itemName);
+    }
+    public void GetInventory(){
+        foreach(Item item in inventory){
+            Debug.Log("Inventory: " + item.GetItemName());
+        }
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5593012283408690499}
   m_Layer: 8
   m_Name: Stick
-  m_TagString: Stick
+  m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

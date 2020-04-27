@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stick : MonoBehaviour{
+public class Stick : Pickable{
 
-    public void PickUp(){
+    public override void PickUp(){
         PlayerInventory.Instance.AddItem("stick");
         Destroy(this.gameObject);
     }

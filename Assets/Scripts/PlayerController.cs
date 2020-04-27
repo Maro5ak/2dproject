@@ -25,12 +25,10 @@ public class PlayerController : MonoBehaviour{
                 if(col.tag == "Sign"){
                     col.GetComponent<Sign>().Interact();
                 }
-                else if(col.tag == "Stick"){
-                    col.GetComponent<Stick>().PickUp();
+                else if(col.tag == "Pickable"){
+                    col.GetComponent<Pickable>().PickUp();
                 }
-                else if(col.tag == "Log"){
-                    col.GetComponent<Log>().PickUp();
-                }
+                
                 else if(col.tag == "Tree"){
                     col.GetComponent<TreeClass>().ChopTree();
                 }
@@ -39,6 +37,9 @@ public class PlayerController : MonoBehaviour{
         else if(Input.GetKeyDown(KeyCode.Q)){
             EventHandler.ItemDropped(PlayerInventory.Instance.GetItem("stick"), transform.position);
             PlayerInventory.Instance.RemoveItem("stick");
+        }
+        else if(Input.GetKeyDown(KeyCode.R)){
+            PlayerInventory.Instance.GetInventory();
         }
 
         

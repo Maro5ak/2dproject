@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4962968620265416383}
   m_Layer: 8
   m_Name: Log
-  m_TagString: Log
+  m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

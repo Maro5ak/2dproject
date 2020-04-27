@@ -8,6 +8,7 @@ TagManager:
   - Stick
   - Tree
   - Log
+  - Pickable
   layers:
   - Default
   - TransparentFX
