@@ -6,10 +6,10 @@ using UnityEngine.Tilemaps;
 public class WorldGen : MonoBehaviour{
     //public:
     public static WorldGen Instance{get; set;}
-    public GameObject player;
     public Tilemap tilemap;
     //private:
     private Transform stickSprite;
+    private Transform logSprite;
     private Vector3Int size;
     private enum GenerationRarity{
         STICK = 350,
@@ -25,6 +25,7 @@ public class WorldGen : MonoBehaviour{
         }
         //resource loading
         stickSprite = Resources.Load<Transform>("Sprites/Stick");
+        logSprite = Resources.Load<Transform>("Sprites/Log");
         //event subs
         EventHandler.OnItemDropped += SpawnDroppedItem;
         //others
@@ -43,9 +44,12 @@ public class WorldGen : MonoBehaviour{
     }
 
 
-    public void SpawnDroppedItem(Item item){
+    public void SpawnDroppedItem(Item item, Vector2 position){
         if(item.GetItemName() == "stick"){
-            Instantiate(stickSprite, player.transform.position, default);
+            Instantiate(stickSprite, position, default);
+        }
+        else if(item.GetItemName() == "log"){ 
+            Instantiate(logSprite, position + (Random.insideUnitCircle * Random.Range(-2, 2)), default);
         }
     }
 }

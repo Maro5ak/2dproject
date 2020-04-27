@@ -28,10 +28,16 @@ public class PlayerController : MonoBehaviour{
                 else if(col.tag == "Stick"){
                     col.GetComponent<Stick>().PickUp();
                 }
+                else if(col.tag == "Log"){
+                    col.GetComponent<Log>().PickUp();
+                }
+                else if(col.tag == "Tree"){
+                    col.GetComponent<TreeClass>().ChopTree();
+                }
             }
         }
         else if(Input.GetKeyDown(KeyCode.Q)){
-            EventHandler.ItemDropped(PlayerInventory.Instance.GetItem("stick"));
+            EventHandler.ItemDropped(PlayerInventory.Instance.GetItem("stick"), transform.position);
             PlayerInventory.Instance.RemoveItem("stick");
         }
 

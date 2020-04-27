@@ -7,9 +7,9 @@ public class ItemStick : Item{
     private string itemName;
     private int itemID;
     
-    public ItemStick(int itemID, string itemName){
-        this.itemID = itemID;
-        this.itemName = itemName;
+    public ItemStick(){
+        this.itemID = 0;
+        this.itemName = "stick";
     }
 
     public override string GetItemName(){

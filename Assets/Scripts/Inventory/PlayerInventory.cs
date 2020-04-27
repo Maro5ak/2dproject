@@ -24,7 +24,7 @@ public class PlayerInventory : MonoBehaviour{
     public void AddItem(string itemName){
         switch(itemName){
             case "stick":
-                inventory.Add(new ItemStick(0, itemName));
+                inventory.Add(new ItemStick());
                 break;
         }
         foreach(Item item in inventory){
