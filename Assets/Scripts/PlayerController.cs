@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour{
     private void Update(){
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));     
         col = Physics2D.OverlapCircle(transform.position, 1f, interactLayerMask);
-        if(Input.GetKeyDown(KeyCode.E)){
+        if(Input.GetKeyDown(KeyCode.E) && col != null){
             if(col.tag != null){
                 if(col.tag == "Sign"){
                     col.GetComponent<Sign>().Interact();

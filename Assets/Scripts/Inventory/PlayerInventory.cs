@@ -30,11 +30,12 @@ public class PlayerInventory : MonoBehaviour{
                 inventory.Add(new ItemLog());
                 break;
         }
-        
+        EventHandler.ItemAdded(GetItem(itemName));
         
     }
     public void RemoveItem(string itemName){
         inventory.Remove(GetItem(itemName));
+        EventHandler.ItemAdded(GetItem(itemName));
 
     }
     public Item GetItem(string itemName){
