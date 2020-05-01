@@ -35,6 +35,7 @@ public class WorldGen : MonoBehaviour{
 
         //event subs
         EventHandler.OnItemDropped += SpawnDroppedItem;
+        EventHandler.OnWorldItemDropped += SpawnWorldDropItem;
         //others
         Debug.Log(tilemap.size);
         GenerateWorld();
@@ -55,10 +56,20 @@ public class WorldGen : MonoBehaviour{
 
 
     public void SpawnDroppedItem(Item item, Vector2 position){
+        //Player drops
         if(item.GetItemName() == "stick"){
             Instantiate(stickSprite, position, default);
         }
-        else if(item.GetItemName() == "log"){ 
+        else if(item.GetItemName() == "log"){
+            Instantiate(logSprite, position, default);
+        }
+        
+        
+    }
+    
+    private void SpawnWorldDropItem(Item item, Vector2 position){
+        //World drops
+        if(item.GetItemName() == "log"){ 
             Instantiate(trunkSprite, new Vector2(position.x, position.y -0.9f), default);
             Instantiate(logSprite, position + (Random.insideUnitCircle * Random.Range(-2, 2)), default);
         }

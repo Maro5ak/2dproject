@@ -34,10 +34,6 @@ public class PlayerController : MonoBehaviour{
                 }
             }
         }
-        else if(Input.GetKeyDown(KeyCode.Q)){
-            EventHandler.ItemDropped(PlayerInventory.Instance.GetItem("stick"), transform.position);
-            PlayerInventory.Instance.RemoveItem("stick");
-        }
         else if(Input.GetKeyDown(KeyCode.R)){
             PlayerInventory.Instance.GetInventory();
         }

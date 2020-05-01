@@ -22,20 +22,24 @@ public class PlayerInventory : MonoBehaviour{
     }
 
     public void AddItem(string itemName){
-        switch(itemName){
-            case "stick":
-                inventory.Add(new ItemStick());
-                break;
-            case "log":
-                inventory.Add(new ItemLog());
-                break;
+        if(inventory.Count < 50){
+            switch(itemName){
+                case "stick":
+                    inventory.Add(new ItemStick());
+                    break;
+                case "log":
+                    inventory.Add(new ItemLog());
+                    break;
+            }
+            EventHandler.ItemAdded(GetItem(itemName));
         }
-        EventHandler.ItemAdded(GetItem(itemName));
+        else Debug.Log("Inventory Full!");
         
     }
     public void RemoveItem(string itemName){
+        EventHandler.ItemDropped(GetItem(itemName), transform.position);
         inventory.Remove(GetItem(itemName));
-        EventHandler.ItemAdded(GetItem(itemName));
+        EventHandler.ItemRemoved(inventory);
 
     }
     public Item GetItem(string itemName){
