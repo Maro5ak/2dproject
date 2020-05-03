@@ -37,9 +37,10 @@ public class PlayerInventory : MonoBehaviour{
         
     }
     public void RemoveItem(string itemName){
+        EventHandler.ItemRemoved(GetItem(itemName));
         EventHandler.ItemDropped(GetItem(itemName), transform.position);
         inventory.Remove(GetItem(itemName));
-        EventHandler.ItemRemoved(inventory);
+        
 
     }
     public Item GetItem(string itemName){
@@ -50,4 +51,19 @@ public class PlayerInventory : MonoBehaviour{
             Debug.Log("Inventory: " + item.GetItemName());
         }
     }
+
+    public int GetItemCount(int id){
+        int result = 0;
+        foreach(Item item in inventory){
+            if(item.GetItemID() == id){
+                result++;
+            }
+        }
+        return result;
+    }
+
+    public int GetInventorySize(){
+        return inventory.Count;
+    }
+    
 }

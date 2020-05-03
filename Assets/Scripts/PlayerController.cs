@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour{
                 }
             }
         }
-        else if(Input.GetKeyDown(KeyCode.R)){
+        if(Input.GetKeyDown(KeyCode.R)){
             PlayerInventory.Instance.GetInventory();
         }
 

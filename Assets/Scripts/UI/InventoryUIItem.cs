@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InventoryUIItem : MonoBehaviour{
     public Item item;
     public Image itemIcon;
+    public Text number;
 
     private Button selectButton;
 
@@ -17,6 +18,7 @@ public class InventoryUIItem : MonoBehaviour{
     public void SetItem(Item item){
         this.item = item;
         itemIcon.sprite = Resources.Load<Sprite>("UI/Icons/" + item.GetItemName() + "_icon");
+        number.text = "1";
     }
     
     private void PerformAction(){
